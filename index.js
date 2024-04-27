@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let jobData; // Variable to store the job data
 
-    fetch("download.json")
+    fetch("info.json")
         .then(response => response.json())
         .then(data => {
             jobData = data; // Store the job data in the variable
