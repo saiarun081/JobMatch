@@ -5,26 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Job Data</title>
   <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fwebsite-background&psig=AOvVaw0UL7NR5yiAam4-YA9l5GVN&ust=1714753573502000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCOjnmP-w74UDFQAAAAAdAAAAABAE');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    /* Button Styles */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Table Styles */
     table {
       border-collapse: collapse;
       width: 100%;
+      margin-top: 20px;
     }
+
     th, td {
       border: 1px solid #dddddd;
       text-align: left;
-      padding: 8px;
+      padding: 12px;
     }
+
     th {
       background-color: #f2f2f2;
     }
   </style>
 </head>
 <body>
-  <h1>Job Data</h1>
-  <button id="fetchJobDescription">Fetch Job Description</button>
-  <select id="jobTitlesDropdown">
-    <option value="">Select Job Title</option>
-  </select>
+  <header>
+    <h1>Job Data</h1>
+  </header>
+  <div style="text-align: center;">
+    <button id="fetchJobDescription">Fetch Job Description</button>
+    <select id="jobTitlesDropdown" style="margin-top: 10px;">
+      <option value="">Select Job Title</option>
+    </select>
+  </div>
   <table id="jobTable">
     <thead>
       <tr>
@@ -39,6 +85,7 @@
       </tr>
     </thead>
     <tbody id="jobTableBody">
+      <!-- Table data will be inserted here dynamically -->
     </tbody>
   </table>
   <script src="index.js"></script>
