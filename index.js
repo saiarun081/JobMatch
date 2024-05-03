@@ -38,20 +38,26 @@ jobData.forEach(job => {
         })
         .catch(error => console.log("Error:", error));
 
-    // Event listener for fetching job description
 // Event listener for fetching job description
 fetchJobDescriptionBtn.addEventListener("click", function() {
     const jobId = prompt("Enter Job ID:");
     if (jobId) {
-        const rows = jobTableBody.querySelectorAll("tr");
-        rows.forEach(row => {
-            const jobIDCell = row.querySelector("td:nth-child(2)"); // Assuming the job ID is in the second column
-            if (jobIDCell && jobIDCell.textContent === jobId) {
-                row.style.display = "table-row"; // Display the row if job ID matches
-            } else {
-                row.style.display = "none"; // Hide the row if job ID does not match
-            }
-        });
+        const job = jobData.find(job => job.JobmatchID === jobId);
+        if (job) {
+            // Constructing the job description
+            let jobDescription = `Job Description: ${job.job_title}\n`;
+            jobDescription += `Salary: ${job.salary_currency} ${job.salary}\n`;
+            jobDescription += `Employee Residence: ${job.employee_residence}\n`;
+            jobDescription += `Experience Level: ${job.experience_level}\n`;
+            jobDescription += `Company Size: ${job.company_size}\n`;
+            jobDescription += `Employment Type: ${job.employment_type}\n`;
+            jobDescription += `Company Location: ${job.company_location}\n`;
+            jobDescription += `JobmatchID: ${job.JobmatchID}`;
+
+            alert(jobDescription);
+        } else {
+            alert("Job ID not found!");
+        }
     }
 });
 
