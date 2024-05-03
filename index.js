@@ -40,22 +40,18 @@ jobData.forEach(job => {
 
     // Event listener for fetching job description
 // Event listener for fetching job description
-fetchJobDescriptionBtn.addEventListener("click", function() {
-    let jobDescription = "Job Descriptions:\n";
-    jobData.forEach(job => {
-        jobDescription += `
-            Job Title: ${job.job_title}
-            Salary: ${job.salary} ${job.salary_currency}
-            Employee Residence: ${job.employee_residence}
-            Experience Level: ${job.experience_level}
-            Company Size: ${job.company_size}
-            Employment Type: ${job.employment_type}
-            Company Location: ${job.company_location}
-            JobmatchID: ${job.JobmatchID}\n\n`;
+    fetchJobDescriptionBtn.addEventListener("click", function() {
+        const jobId = prompt("Enter Job ID:");
+        if (jobId) {
+            const job = jobData.find(job => job.JobmatchID === jobId);
+            if (job) {
+                alert(`Job Description: ${job.job_title} - ${job.salary_currency}${job.salary}`);
+            } else {
+                alert("Job ID not found!");
+            }
+        }
     });
 
-    alert(jobDescription);
-});
 
     // Event listener for filtering jobs based on selected job title
     jobTitlesDropdown.addEventListener("change", function() {
