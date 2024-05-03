@@ -19,20 +19,22 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             // Populate job table
-            jobData.forEach(job => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${job.job_title}</td>
-                    <td>${job.salary}</td>
-                    <td>${job.salary_currency}</td>
-                    <td>${job.employee_residence}</td>
-                    <td>${job.experience_level}</td>
-                    <td>${job.company_size}</td>
-                    <td>${job.employment_type}</td>
-                    <td>${job.company_location}</td>
-                `;
-                jobTableBody.appendChild(row);
-            });
+            // Populate job table
+jobData.forEach(job => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${job.job_title}</td>
+        <td>${job.salary}</td>
+        <td>${job.salary_currency}</td>
+        <td>${job.employee_residence}</td>
+        <td>${job.experience_level}</td>
+        <td>${job.company_size}</td>
+        <td>${job.employment_type}</td>
+        <td>${job.company_location}</td>
+        <td>${job.JobmatchID}</td> <!-- Add JobmatchID column -->
+    `;
+    jobTableBody.appendChild(row);
+});
         })
         .catch(error => console.log("Error:", error));
 
