@@ -40,17 +40,20 @@ jobData.forEach(job => {
 
     // Event listener for fetching job description
 // Event listener for fetching job description
-    fetchJobDescriptionBtn.addEventListener("click", function() {
-        const jobId = prompt("Enter Job ID:");
-        if (jobId) {
-            const job = jobData.find(job => job.JobmatchID === jobId);
-            if (job) {
-                alert(`Job Description: ${job.job_title} - ${job.salary_currency}${job.salary}`);
+fetchJobDescriptionBtn.addEventListener("click", function() {
+    const jobId = prompt("Enter Job ID:");
+    if (jobId) {
+        const rows = jobTableBody.querySelectorAll("tr");
+        rows.forEach(row => {
+            const jobIDCell = row.querySelector("td:nth-child(2)"); // Assuming the job ID is in the second column
+            if (jobIDCell && jobIDCell.textContent === jobId) {
+                row.style.display = "table-row"; // Display the row if job ID matches
             } else {
-                alert("Job ID not found!");
+                row.style.display = "none"; // Hide the row if job ID does not match
             }
-        }
-    });
+        });
+    }
+});
 
 
     // Event listener for filtering jobs based on selected job title
